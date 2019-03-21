@@ -4,24 +4,91 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>weather app</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="shortcut icon" href="./iconfinder_weather-few-clouds_118961.png">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name ="description" content="Weather Application">
+     <meta name ="keywords" content="Weather Application, Weather">
+     <meta name ="authors" content="Georgi,Elishka,Ben">
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+     <style>
+        @import url("https://fonts.googleapis.com/css?family=Bai+Jamjuree");
+      </style>
     
 </head>
 <body>
-
-    
+   <h1 id="heading">LOCAL WEATHER APP</h1>
+   <p id="currentWeather"></p>
       <article>
          <section id="weather"> 
              <img alt="loading" id="spinner" src="./lg.solar-light-ajax-spinner.gif">
-          </section>
-          <form id="toggle">
-                <button type="button" id="cel" class="inactive" onclick="SetCelsius();">Celsius</button>
-                <button type="button" id="far" class="inactive" onclick="SetFahrenheit();">Fahrenheit</button>
-            </form>
+             </section>
+          
+            <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-lg center">Fahrenheit</button>
+                </div>
+            <div class="container">
+                <div class="sunny"></div>
+                <div class="cloudy"></div>
+                <div class="rainy"></div>
+                <div class="snowy"></div>
+                <div class="rainbow"></div>
+                <div class="starry"></div>
+                <div class="stormy"></div>
+            </div>
+
+            <div class="fortyEightHrForecast">
+                <div class="column">
+                <p>00:00</p>
+                <p>03:00</p>
+                <p>06:00</p>
+                <p>09:00</p>
+                <p>12:00</p>
+                <p>15:00</p>
+                <p>18:00</p>
+                <p>21:00</p>
+                <p>24:00</p>
+                <p>03:00</p>
+                <p>06:00</p>
+                <p>09:00</p>
+                <p>12:00</p>
+                <p>15:00</p>
+                <p>18:00</p>
+                <p>21:00</p>
+                <p>24:00</p>
+                </div>
+              </div>
+
+              <div class="sevenDayForecast">
+                <img class="sundayForecast" />
+                <img class="mondayForecast" />
+                <img class="tuesdayForecast" />
+                <img class="wednesdayForecast" />
+                <img class="thursdayForecast" />
+                <img class="fridayForecast" />
+                <img class="saturdayForecast" />
+              </div>
+
+              <div class="sevenDayText">
+                  <p class="sunDay">Sun</p>
+                  <p class="monDay">Mon</p>
+                  <p class="tuesDay">Tues</p>
+                  <p class="wednesDay">Weds</p>
+                  <p class="thursDay">Thurs</p>
+                  <p class="friDay">Fri</p>
+                  <p class="saturDay">Sat</p>
+              </div>
+
+              <div class="sevenDayTemperature">
+                  
+              </div>
+
      </article>
 
-
+              <div class="wrapper">
+              
+              <div id="clockDisplay"></div>
+              <script type="text/javascript"></script>
+              <p id="date"></p>
 
 
 

@@ -1,0 +1,88 @@
+body {
+    background-color: #327891;
+    font-family: "Bai Jamjuree", sans-serif;
+}
+#heading { 
+    font-weight: 900;
+    font-size: 2.5em;
+    text-align: center;
+    justify-content: center !important;
+    align-content: center !important;
+    align-self: center !important;
+    margin-top: 50px;
+}
+.btn { 
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    justify-content: center !important;
+    align-self: center !important;
+    box-shadow: #3B3B3B 2px 2px 5px;
+    }
+    .btn:hover {
+        background-color: #E9E9E9;
+        color: #222930;
+    }
+    .btn:focus, .btn:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+.center { 
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+
+}
+  
+#weather {
+    text-align: center;
+}
+
+#toggle {
+    text-align: center;
+}
+
+
+
+.fortyEightHrForecast {
+    position: relative;
+    margin: auto;
+    width: 75%;
+    border: 5px solid #59a2bd;
+    border-radius: 25px;
+    background-color: #59a2bd;
+    padding: 30px;
+    column-count: 17;
+    column-gap: 45px;
+    text-align: center;
+    text-align-last: center;
+  }
+  
+.sevenDayForecast {
+  }
+
+.sevenDayText {
+    position: relative;
+    margin: auto;
+    width: 60%;
+    border: 5px solid #59a2bd;
+    border-radius: 25px;
+    background-color: #59a2bd;
+    padding: 10px;
+    column-count: 7;
+    column-gap: 20px;
+    text-align: center;
+    justify-content: center !important;
+    align-content: center !important;
+    align-self: center !important;
+    vertical-align: sub;
+}
+
+#cel {
+    border-radius: 50px;
+}
+
+#far {
+    border-radius: 50px;
+
+}
