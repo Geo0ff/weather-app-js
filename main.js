@@ -155,12 +155,12 @@ let futureDate = function (day) {
                 callback(undefined, `Throughout the week it will be ${response.body.daily.summary}`)
                 callback(undefined, `On it's ${response.body.daily.data[0].temperatureHigh}`)
                 callback(undefined, `On it's ${response.body.daily.data[1].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily..data[2].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.summary.icon.data[3].icon.precipType.temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.summary.icon.data[4].icon.precipType.temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.summary.icon.data[5].icon.precipType.temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.summary.icon.data[6].icon.precipType.temperatureHigh}`)
-            })
+                callback(undefined, `On it's ${response.body.daily.data[2].temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.data[3].temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.data[4].temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.data[5].temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.data[6].temperatureHigh}`)
+            }})
         }
     
 console.log(forecast)

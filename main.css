@@ -15,7 +15,7 @@ body {
     margin-top: 50px;
 }
 
-input[type=text] {
+#input[type=text] {
     text-align: center !important;
     display: block;
    
