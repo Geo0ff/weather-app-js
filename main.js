@@ -28,10 +28,15 @@ document.getElementById("date").innerHTML = getDate1.getDate();
 document.getElementById("date").innerHTML = months[getDate1.getMonth()];
 let order =  getDate1.getDate() + " " + months[getDate1.getMonth()] + " " + getDate1.getFullYear();
 document.getElementById("date").innerText = order
+
+
+
+
     
 const submitButton = document.getElementsByClassName("submitButton")
 const input = document.getElementsByClassName("weatherInput")
-const messageOne = document.getElementById("")
+const messageOne = document.getElementById("currentLocation")
+const messageTwo = document.getElementById("currentTemp")
 
 submitButton.addEventListener("click", e => {
     e.preventDefault();
@@ -40,21 +45,13 @@ submitButton.addEventListener("click", e => {
 
     fetch(`/weather?address=${location}`).then(response => {
         if (data.error) {
-
+            messageOne.textContent = data.error;
+        } else {
+            messageOne.textContent = data.location;
+            messageTwo.textContent = data.forecast;
         }
     })
 })
-
-
-
-
-    
-
-
-
-
-
-
 
 let futureDate = function (day) {
     let someDate = new Date();
@@ -90,7 +87,7 @@ let futureDate = function (day) {
     day[5] = 'Friday';
     day[6] = 'Saturday';
 
-    let futureMonth = month[mm];
+    let futureMonth = months1[mm];
     let futureDay = day[d]
 
     let someFormattedDate = futureDay + ", " + futureMonth + ' '+ dd + ', '+ y;
@@ -108,9 +105,9 @@ let futureDate = function (day) {
 
 
 const forecast = (latitude, longitude, callback) => {
-        const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233`;
+        const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/${latitude},${longitude}`;
     
-        request((error, response) => {
+        request({ url }, (error, response) => {
             if (error) {
                 callback("Unable to connect to weather service!", undefined)
             } else if (response.bodyAPIcall.error) {
@@ -127,7 +124,7 @@ const forecast = (latitude, longitude, callback) => {
 const geocode = (address, callback) => {
         const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
       
-        request((error, response) => {
+        request({ url }, (error, response) => {
           if (error) {
             callback("Unable to connect to location services!", undefined);
           } else if (response.body.features.length === 0) {
@@ -142,38 +139,32 @@ const geocode = (address, callback) => {
     });
 }
 
+const fortyEightHours = (latitude, longitude, callback) => {
+    const url
+}
 
-
-    const sevenDays = (latitude, longitude, callback) => {
-        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
-
-        request((error, response) => {
+const sevenDays = (latitude, longitude, callback) => {
+        const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/${latitude},-${longitude}`;
+        request({ url, json: true }, (error, response) => {
             if (error) {
                 callback("Unable to get data!", undefined);
             } else if (response.body.features.length === 0) {
                 callback("Unable to get weather for the next few days!", undefined);
             } else {
                 callback(undefined, `Throughout the week it will be ${response.body.daily.summary}`)
-                callback(undefined, `On it's ${response.body.daily.data[0].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.data[1].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.data[2].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.data[3].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.data[4].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.data[5].temperatureHigh}`)
-                callback(undefined, `On it's ${response.body.daily.data[6].temperatureHigh}`)
+                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[0].temperatureHigh}`)
+                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[1].temperatureHigh}`)
+                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[2].temperatureHigh}`)
+                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[3].temperatureHigh}`)
+                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[4].temperatureHigh}`)
+                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[5].temperatureHigh}`)
+                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[6].temperatureHigh}`)
             }})
         }
     
-console.log(forecast)
-console.log(geocode)
-console.log(sevenDays)
+console.log(forecast);
+console.log(geocode);
+console.log(sevenDays);
 
-//     $.get({ url: weatherUrl + "&APPID=" + apiKey + "&units=" + unitType + "&cnt=" + daysTotal,
-//     success: function(objectFromOWM){
-//         getWeather(objectFromOWM);
-//     },
-//     error: function(){
-//         console.log("error");
-//     }
-//     })
-// }
+
+let url = " "

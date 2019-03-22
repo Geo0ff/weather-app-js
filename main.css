@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
 
 body {
-    display: grid;
     background-color: #3b94b4;
     font-family: "Julius Sans One";
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.3fr 0.3fr 1.3fr 0.3fr 1.6fr 1.6fr;
+  grid-template-areas:
+   "head" 
+   "date" 
+   "input"
+   "icon"
+   "buttons" 
+   "fourty" 
+   "seven";
+}
+
+
 #heading { 
     font-weight: 900;
     font-size: 2.5em;
@@ -20,7 +35,7 @@ body {
     display: block;
     border-radius: 8px;
     margin: 0 0 1em 0;
-    padding: 5px;
+    padding: 5px; 
 }
 
 #weatherInput:focus, #weatherInput:active{
@@ -31,6 +46,9 @@ body {
     box-shadow: #3B3B3B 2px 2px 5px;
     background-color:rgb(0, 225, 255);
     border-radius: 10px;
+    font-size: 15px;
+    font-family: "Julius Sans One";
+    
     }
     .btn:hover {
         background-color: yellow;
@@ -45,6 +63,8 @@ body {
   box-shadow: #3B3B3B 2px 2px 5px;
   background-color: rgb(0, 225, 255);
   border-radius: 10px;
+  font-size: 15px;
+  font-family: "Julius Sans One";
 }
 
 .submitButton:hover {
@@ -73,6 +93,7 @@ body {
 
 
 .row {
+  grid-area: "Times";
     position: relative;
     margin: auto;
     width: 75%;
@@ -81,7 +102,7 @@ body {
     background-color: #60aeca;
     display: flex;
     flex-direction: row;
-    padding: 30px;
+    padding: 40px;
     justify-content: center;
   }
   
@@ -230,7 +251,6 @@ a {
   width: 3.75em;
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
-  background: ;
 }
 
 .rain:after {
