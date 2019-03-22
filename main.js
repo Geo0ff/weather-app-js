@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 function startTime() {
     var date = new Date();
     var h = date.getHours();
@@ -36,7 +29,20 @@ document.getElementById("date").innerHTML = months[getDate1.getMonth()];
 let order =  getDate1.getDate() + " " + months[getDate1.getMonth()] + " " + getDate1.getFullYear();
 document.getElementById("date").innerText = order
     
-        
+const submitButton = document.getElementsByClassName("submitButton")
+const input = document.getElementsByClassName("weatherInput")
+
+submitButton.addEventListener("click", e => {
+    e.preventDefault();
+
+    let location = input.value;
+
+    fetch(`/weather?address=${location}`).then(response => {
+        if (data.error) {
+
+        }
+    })
+})
 
 
 
@@ -60,19 +66,19 @@ let futureDate = function (day) {
     let d = someDate.getDay();
 
 
-    let months = new Array();
-    months[0] = 'January';
-    months[1] = 'February';
-    months[2] = 'March';
-    months[3] = 'April';
-    months[4] = 'May';
-    months[5] = 'June';
-    months[6] = 'July';
-    months[7] = 'August';
-    months[8] = 'September';
-    months[9] = 'October';
-    months[10] = 'November';
-    months[11] = 'December';
+    let months1 = new Array();
+    months1[0] = 'January';
+    months1[1] = 'February';
+    months1[2] = 'March';
+    months1[3] = 'April';
+    months1[4] = 'May';
+    months1[5] = 'June';
+    months1[6] = 'July';
+    months1[7] = 'August';
+    months1[8] = 'September';
+    months1[9] = 'October';
+    months1[10] = 'November';
+    months1[11] = 'December';
 
     let day = new Array();
     day[0] = 'Sunday';
@@ -93,27 +99,53 @@ let futureDate = function (day) {
 
 
 
-let APIcall = function(cityLocation) {
-    let weatherUrl = "https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233" + cityLocation;
-    // let apiKey = "3278ab7861ece66c23dae4b112c2d34b";
-    let unitType = "metric";
-    let daysTotal = 8;
+// let APIcall = function(cityLocation) {
+//     let weatherUrl = "https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233" + cityLocation;
+//     let apiKey = "3278ab7861ece66c23dae4b112c2d34b";
+//     let unitType = "metric";
+//     let daysTotal = 8;
 
 
-request((error, response) => {
-    if (error) {
-        callback("Unable to connect to weather service!", undefined)
-    } else if (response.bodyAPIcall.error) {
-        callback("Unable to find location", undefined)
-    } else {
-        callback(
-            undefined,
-            `It's ${response.body.currently.data.temperature} degrees out.`
-        )
+    const forecast = (latitude, longitude, callback) => {
+        const url = "https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233";
+    
+        request((error, response) => {
+            if (error) {
+                callback("Unable to connect to weather service!", undefined)
+            } else if (response.bodyAPIcall.error) {
+                callback("Unable to find location", undefined)
+            } else {
+                callback(
+                    undefined,
+                    `It's ${response.body.currently.data.temperature} degrees out.`
+                )
+            }
+        })
     }
-})
 
-console.log(APIcall)
+    const geocode = (address, callback) => {
+        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
+      
+        request({ url, json: true }, (error, response) => {
+          if (error) {
+            callback("Unable to connect to location services!", undefined);
+          } else if (response.body.features.length === 0) {
+            callback("Unable to find location. Try another search.", undefined);
+          } else {
+            callback(undefined, {
+              latitude: response.body.features[0].center[1],
+              longitude: response.body.features[0].center[0],
+              location: response.body.features[0].place_name
+            });
+          }
+        });
+      };
+
+    const sevenDays = (latitude, longitude, callback) => {
+        
+    }
+console.log(forecast)
+console.log(geocode)
 
 //     $.get({ url: weatherUrl + "&APPID=" + apiKey + "&units=" + unitType + "&cnt=" + daysTotal,
 //     success: function(objectFromOWM){
@@ -124,4 +156,3 @@ console.log(APIcall)
 //     }
 //     })
 // }
-fdgdfg
