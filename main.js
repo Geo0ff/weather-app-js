@@ -113,7 +113,7 @@ let futureDate = function (day) {
             if (error) {
                 callback("Unable to connect to weather service!", undefined)
             } else if (response.bodyAPIcall.error) {
-                callback("Unable to find location", undefined)
+                callback("Unable to get temperature", undefined)
             } else {
                 callback(
                     undefined,
@@ -126,7 +126,7 @@ let futureDate = function (day) {
     const geocode = (address, callback) => {
         const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A";
       
-        request(error, response) => {
+        request((error, response) => {
           if (error) {
             callback("Unable to connect to location services!", undefined);
           } else if (response.body.features.length === 0) {
@@ -137,15 +137,27 @@ let futureDate = function (day) {
               longitude: response.body.features[0].center[0],
               location: response.body.features[0].place_name
             });
-        }
-        });
-    })
+        };
+    });
+}
+
 
 
     const sevenDays = (latitude, longitude, callback) => {
         const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A";
 
-        request()
+        request((error, response) => {
+            if (error) {
+                callback("Unable to get data!", undefined);
+            } else if (response.body.features.length === 0) {
+                callback("Unable to get weather for the next few days!", undefined);
+            } else {
+                callback(undefined, `It's ${response.body.daily}`
+
+                })
+            }
+            }
+        })
     }
 console.log(forecast)
 console.log(geocode)

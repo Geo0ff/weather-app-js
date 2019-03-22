@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
 body {
     display: grid;
     background-color: #398aa8;
-    font-family: "Bai Jamjuree", sans-serif;
+    font-family: "Julius Sans One";
 }
 #heading { 
     font-weight: 900;
@@ -22,19 +24,30 @@ input[type=text] {
 }
 
 .btn { 
-    text-align: center;
-    position: absolute;
-    font-weight: bold;
     box-shadow: #3B3B3B 2px 2px 5px;
     }
     .btn:hover {
-        background-color: #E9E9E9;
+        background-color: yellow;
         color: #222930;
     }
     .btn:focus, .btn:active {
         outline: none !important;
         box-shadow: none !important;
     }
+
+.submitButton {
+  box-shadow: #3B3B3B 2px 2px 5px;
+}
+
+.submitButton:hover {
+  background-color: #E9E9E9;
+  color: #222930;
+}
+.submitButton:focus, .submitButton:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .center { 
     margin: auto;
     
@@ -55,9 +68,9 @@ input[type=text] {
     position: relative;
     margin: auto;
     width: 75%;
-    border: 5px solid #59a2bd;
+    border: 5px solid #60aeca;
     border-radius: 25px;
-    background-color: #59a2bd;
+    background-color: #60aeca;
     display: flex;
     flex-direction: row;
     padding: 30px;
@@ -77,9 +90,9 @@ input[type=text] {
     
     margin: auto;
     width: 60%;
-    border: 5px solid #59a2bd;
+    border: 5px solid #60aeca;
     border-radius: 25px;
-    background-color: #59a2bd;
+    background-color: #60aeca;
     padding: 10px;
     column-count: 7;
     column-gap: 20px;
@@ -334,7 +347,7 @@ a {
 
 @keyframes rain {
   0% {
-    background: #0cf;
+    background: rgb(0, 225, 255);
     box-shadow:
       0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
       -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
@@ -343,13 +356,13 @@ a {
   25% {
     box-shadow:
       0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
-      -0.875em 1.125em 0 -0.125em #0cf,
+      -0.875em 1.125em 0 -0.125em rgb(0, 225, 255),
       -1.375em -0.125em 0 rgba(255,255,255,0.2);
   }
   50% {
     background: rgba(255,255,255,0.3);
     box-shadow:
-      0.625em 0.875em 0 -0.125em #0cf,
+      0.625em 0.875em 0 -0.125em rgb(0, 225, 255),
       -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
       -1.375em -0.125em 0 rgba(255,255,255,0.2);
   }
@@ -357,7 +370,7 @@ a {
     box-shadow:
       0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
       -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
-      -1.375em -0.125em 0 #0cf;
+      -1.375em -0.125em 0 rgb(0, 225, 255);
   }
 }
 
