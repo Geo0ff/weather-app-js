@@ -15,18 +15,22 @@ body {
     margin-top: 50px;
 }
 
-#input[type=text] {
+#weatherInput {
     text-align: center !important;
     display: block;
-   
+    border-radius: 8px;
     margin: 0 0 1em 0;
     padding: 5px;
+}
+
+#weatherInput:focus, #weatherInput:active{
+  outline: none !important;
 }
 
 .btn { 
     box-shadow: #3B3B3B 2px 2px 5px;
     background-color:rgb(0, 225, 255);
-    border-radius: 50%;
+    border-radius: 10px;
     }
     .btn:hover {
         background-color: yellow;
@@ -40,7 +44,7 @@ body {
 .submitButton {
   box-shadow: #3B3B3B 2px 2px 5px;
   background-color: rgb(0, 225, 255);
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 .submitButton:hover {

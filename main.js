@@ -31,6 +31,7 @@ document.getElementById("date").innerText = order
     
 const submitButton = document.getElementsByClassName("submitButton")
 const input = document.getElementsByClassName("weatherInput")
+const messageOne = document.getElementById("")
 
 submitButton.addEventListener("click", e => {
     e.preventDefault();
@@ -106,7 +107,7 @@ let futureDate = function (day) {
 //     let daysTotal = 8;
 
 
-    const forecast = (latitude, longitude, callback) => {
+const forecast = (latitude, longitude, callback) => {
         const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233`;
     
         request((error, response) => {
@@ -118,12 +119,12 @@ let futureDate = function (day) {
                 callback(
                     undefined,
                     `It's ${response.body.currently.data.temperature} degrees out.`
-                )
-            }
-        })
-    }
+            )
+        }
+    })
+}
 
-    const geocode = (address, callback) => {
+const geocode = (address, callback) => {
         const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
       
         request((error, response) => {
@@ -165,6 +166,7 @@ let futureDate = function (day) {
     
 console.log(forecast)
 console.log(geocode)
+console.log(sevenDays)
 
 //     $.get({ url: weatherUrl + "&APPID=" + apiKey + "&units=" + unitType + "&cnt=" + daysTotal,
 //     success: function(objectFromOWM){
