@@ -107,7 +107,7 @@ let futureDate = function (day) {
 
 
     const forecast = (latitude, longitude, callback) => {
-        const url = "https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233";
+        const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233`;
     
         request((error, response) => {
             if (error) {
@@ -124,7 +124,7 @@ let futureDate = function (day) {
     }
 
     const geocode = (address, callback) => {
-        const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A";
+        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
       
         request((error, response) => {
           if (error) {
@@ -144,7 +144,7 @@ let futureDate = function (day) {
 
 
     const sevenDays = (latitude, longitude, callback) => {
-        const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A";
+        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
 
         request((error, response) => {
             if (error) {
@@ -152,13 +152,17 @@ let futureDate = function (day) {
             } else if (response.body.features.length === 0) {
                 callback("Unable to get weather for the next few days!", undefined);
             } else {
-                callback(undefined, `It's ${response.body.daily}`
-
-                })
-            }
-            }
-        })
-    }
+                callback(undefined, `Throughout the week it will be ${response.body.daily.summary}`)
+                callback(undefined, `On it's ${response.body.daily.data[0].temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.data[1].temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily..data[2].temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.summary.icon.data[3].icon.precipType.temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.summary.icon.data[4].icon.precipType.temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.summary.icon.data[5].icon.precipType.temperatureHigh}`)
+                callback(undefined, `On it's ${response.body.daily.summary.icon.data[6].icon.precipType.temperatureHigh}`)
+            })
+        }
+    
 console.log(forecast)
 console.log(geocode)
 
