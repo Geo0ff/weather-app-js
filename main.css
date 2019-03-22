@@ -70,11 +70,16 @@ input[type=text] {
   }
   
 .sevenDayForecast {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
 .sevenDayText {
     display: flex;
     flex-direction: row;
+    
     margin: auto;
     width: 60%;
     border: 5px solid #59a2bd;
@@ -292,8 +297,8 @@ a {
   left: 50%;
   margin: -1.025em 0 0 -1.0125em;
   color: #fff;
-  list-height: 1em;
-  opacity: 0.2;
+  list-height: 1;
+  opacity: 0.3;
   animation: spin 8s linear infinite reverse;
 }
 .flake:after {
@@ -367,8 +372,8 @@ a {
     opacity: 0.2;
   }
   50% {
-    color: #0cf;
-    background: #0cf;
+    color: yellow;
+    background: yellow;
     opacity: 1;
   }
   55% {

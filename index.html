@@ -20,9 +20,14 @@
    
       <article>
             <input type="text" placeholder="Enter Location here...">
-         <section id="weather">
-             <img alt="loading" id="spinner" src="./lg.solar-light-ajax-spinner.gif">
-             </section>
+            <div class="weather">
+              <p id="currentLocation"></p>
+              <p id="currentTemp"></p>
+          </div>
+          <div id="weatherCodition">
+              <img id="weatherIcon" src="" alt="weather icon">
+              <p id="currentWeather"></p>
+          </div>
           
             <div class="text-center">
                     <button type="button" class="btn btn-primary btn-lg center">Fahrenheit</button>
