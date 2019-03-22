@@ -32,139 +32,141 @@ document.getElementById("date").innerText = order
 
 
 
+
+
     
-const submitButton = document.getElementsByClassName("submitButton")
-const input = document.getElementsByClassName("weatherInput")
-const messageOne = document.getElementById("currentLocation")
-const messageTwo = document.getElementById("currentTemp")
+// const submitButton = document.getElementsByClassName("submitButton")
+// const input = document.getElementsByClassName("weatherInput")
+// const messageOne = document.getElementById("currentLocation")
+// const messageTwo = document.getElementById("currentTemp")
 
-submitButton.addEventListener("click", e => {
-    e.preventDefault();
+// submitButton.addEventListener("click", e => {
+//     e.preventDefault();
 
-    let location = input.value;
+//     let location = input.value;
 
-    fetch(`/weather?address=${location}`).then(response => {
-        if (data.error) {
-            messageOne.textContent = data.error;
-        } else {
-            messageOne.textContent = data.location;
-            messageTwo.textContent = data.forecast;
-        }
-    })
-})
+//     fetch(`/weather?address=${location}`).then(response => {
+//         if (data.error) {
+//             messageOne.textContent = data.error;
+//         } else {
+//             messageOne.textContent = data.location;
+//             messageTwo.textContent = data.forecast;
+//         }
+//     })
+// })
 
-let futureDate = function (day) {
-    let someDate = new Date();
-    let addDays = day;
-    someDate.setDate(someDate.getDate() + addDays);
+// let futureDate = function (day) {
+//     let someDate = new Date();
+//     let addDays = day;
+//     someDate.setDate(someDate.getDate() + addDays);
 
-    let dd = someDate.getDate();
-    let mm = someDate.getMonth();
-    let y = someDate.getFullYear();
-    let d = someDate.getDay();
-
-
-    let months1 = new Array();
-    months1[0] = 'January';
-    months1[1] = 'February';
-    months1[2] = 'March';
-    months1[3] = 'April';
-    months1[4] = 'May';
-    months1[5] = 'June';
-    months1[6] = 'July';
-    months1[7] = 'August';
-    months1[8] = 'September';
-    months1[9] = 'October';
-    months1[10] = 'November';
-    months1[11] = 'December';
-
-    let day = new Array();
-    day[0] = 'Sunday';
-    day[1] = 'Monday';
-    day[2] = 'Tuesday';
-    day[3] = 'Wednesday';
-    day[4] = 'Thursday';
-    day[5] = 'Friday';
-    day[6] = 'Saturday';
-
-    let futureMonth = months1[mm];
-    let futureDay = day[d]
-
-    let someFormattedDate = futureDay + ", " + futureMonth + ' '+ dd + ', '+ y;
-
-    return someFormattedDate;
-}
+//     let dd = someDate.getDate();
+//     let mm = someDate.getMonth();
+//     let y = someDate.getFullYear();
+//     let d = someDate.getDay();
 
 
+//     let months1 = new Array();
+//     months1[0] = 'January';
+//     months1[1] = 'February';
+//     months1[2] = 'March';
+//     months1[3] = 'April';
+//     months1[4] = 'May';
+//     months1[5] = 'June';
+//     months1[6] = 'July';
+//     months1[7] = 'August';
+//     months1[8] = 'September';
+//     months1[9] = 'October';
+//     months1[10] = 'November';
+//     months1[11] = 'December';
 
-// let APIcall = function(cityLocation) {
-//     let weatherUrl = "https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233" + cityLocation;
-//     let apiKey = "3278ab7861ece66c23dae4b112c2d34b";
-//     let unitType = "metric";
-//     let daysTotal = 8;
+//     let day = new Array();
+//     day[0] = 'Sunday';
+//     day[1] = 'Monday';
+//     day[2] = 'Tuesday';
+//     day[3] = 'Wednesday';
+//     day[4] = 'Thursday';
+//     day[5] = 'Friday';
+//     day[6] = 'Saturday';
+
+//     let futureMonth = months1[mm];
+//     let futureDay = day[d]
+
+//     let someFormattedDate = futureDay + ", " + futureMonth + ' '+ dd + ', '+ y;
+
+//     return someFormattedDate;
+// }
 
 
-const forecast = (latitude, longitude, callback) => {
-        const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/${latitude},${longitude}`;
+
+// // let APIcall = function(cityLocation) {
+// //     let weatherUrl = "https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/37.8267,-122.4233" + cityLocation;
+// //     let apiKey = "3278ab7861ece66c23dae4b112c2d34b";
+// //     let unitType = "metric";
+// //     let daysTotal = 8;
+
+
+// const forecast = (latitude, longitude, callback) => {
+//         const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/${latitude},${longitude}`;
     
-        request({ url }, (error, response) => {
-            if (error) {
-                callback("Unable to connect to weather service!", undefined)
-            } else if (response.bodyAPIcall.error) {
-                callback("Unable to get temperature", undefined)
-            } else {
-                callback(
-                    undefined,
-                    `It's ${response.body.currently.data.temperature} degrees out.`
-            )
-        }
-    })
-}
+//         request({ url }, (error, response) => {
+//             if (error) {
+//                 callback("Unable to connect to weather service!", undefined)
+//             } else if (response.bodyAPIcall.error) {
+//                 callback("Unable to get temperature", undefined)
+//             } else {
+//                 callback(
+//                     undefined,
+//                     `It's ${response.body.currently.data.temperature} degrees out.`
+//             )
+//         }
+//     })
+// }
 
-const geocode = (address, callback) => {
-        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
+// const geocode = (address, callback) => {
+//         const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoicm9ja2V0dG93biIsImEiOiJjanQ2ZmEyZnowZjloNDRtd2VtemR3dzZmIn0.JLgxwoeoCASsZ8WDYI3-5A`;
       
-        request({ url }, (error, response) => {
-          if (error) {
-            callback("Unable to connect to location services!", undefined);
-          } else if (response.body.features.length === 0) {
-            callback("Unable to find location. Try another search.", undefined);
-          } else {
-            callback(undefined, {
-              latitude: response.body.features[0].center[1],
-              longitude: response.body.features[0].center[0],
-              location: response.body.features[0].place_name
-            });
-        };
-    });
-}
+//         request({ url }, (error, response) => {
+//           if (error) {
+//             callback("Unable to connect to location services!", undefined);
+//           } else if (response.body.features.length === 0) {
+//             callback("Unable to find location. Try another search.", undefined);
+//           } else {
+//             callback(undefined, {
+//               latitude: response.body.features[0].center[1],
+//               longitude: response.body.features[0].center[0],
+//               location: response.body.features[0].place_name
+//             });
+//         };
+//     });
+// }
 
-const fortyEightHours = (latitude, longitude, callback) => {
-    const url
-}
+// const fortyEightHours = (latitude, longitude, callback) => {
+//     const url
+// }
 
-const sevenDays = (latitude, longitude, callback) => {
-        const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/${latitude},-${longitude}`;
-        request({ url, json: true }, (error, response) => {
-            if (error) {
-                callback("Unable to get data!", undefined);
-            } else if (response.body.features.length === 0) {
-                callback("Unable to get weather for the next few days!", undefined);
-            } else {
-                callback(undefined, `Throughout the week it will be ${response.body.daily.summary}`)
-                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[0].temperatureHigh}`)
-                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[1].temperatureHigh}`)
-                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[2].temperatureHigh}`)
-                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[3].temperatureHigh}`)
-                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[4].temperatureHigh}`)
-                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[5].temperatureHigh}`)
-                callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[6].temperatureHigh}`)
-            }})
-        }
+// const sevenDays = (latitude, longitude, callback) => {
+//         const url = `https://api.darksky.net/forecast/3278ab7861ece66c23dae4b112c2d34b/${latitude},-${longitude}`;
+//         request({ url, json: true }, (error, response) => {
+//             if (error) {
+//                 callback("Unable to get data!", undefined);
+//             } else if (response.body.features.length === 0) {
+//                 callback("Unable to get weather for the next few days!", undefined);
+//             } else {
+//                 callback(undefined, `Throughout the week it will be ${response.body.daily.summary}`)
+//                 callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[0].temperatureHigh}`)
+//                 callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[1].temperatureHigh}`)
+//                 callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[2].temperatureHigh}`)
+//                 callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[3].temperatureHigh}`)
+//                 callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[4].temperatureHigh}`)
+//                 callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[5].temperatureHigh}`)
+//                 callback(undefined, `On ${futureDay[d]}, ${futureMonth[mm]} it's ${response.body.daily.data[6].temperatureHigh}`)
+//             }})
+//         }
     
-console.log(forecast);
-console.log(geocode);
-console.log(sevenDays);
+// console.log(forecast);
+// console.log(geocode);
+// console.log(sevenDays);
 
 
-let url = " "
+// let url = " "
